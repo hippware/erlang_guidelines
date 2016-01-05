@@ -1,12 +1,8 @@
 Erlang Coding Standards & Guidelines
 ====================================
 
-Suggested reading material: http://www.erlang.se/doc/programming_rules.shtml
-
-***
-
 Table of Contents:
-* [Contact Us](#Contact-Us)
+* [Suggested Reading](#Suggested-Reading)
 * [Conventions & Rules](#conventions--rules)
   * [Source Code Layout](#source-code-layout)
     * [Spaces over tabs](#spaces-over-tabs)
@@ -71,16 +67,17 @@ Table of Contents:
   * [Move stuff to independent applications](#move-stuff-to-independent-applications)
   * [Use the facade pattern on libraries](#use-the-facade-pattern-on-libraries)
   * [Types in exported functions](#types-in-exported-functions)
-  * [Separate responsibilities in sumo_db](#separate-responsibilities-in-sumo_db)
 
-## Contact Us
 
-For **questions** or **general comments** regarding the use of this library, please use our public
-[hipchat room](http://inaka.net/hipchat).
+## Suggested Reading
 
-If you find any **bugs** or have a **problem** while using this library, please [open an issue](https://github.com/inaka/erlang_guidelines/issues/new) in this repo (or a pull request :)).
+* [Erlang Programming Rules and Conventions](http://www.erlang.se/doc/programming_rules.shtml)
+* [Guidelines for ejabberd developers](https://www.ejabberd.im/Guidelines%20for%20ejabberd%20developers)
+* [How to Write code to take advantage of Dialyzer](https://github.com/zkessin/testing-erlang-book/blob/master/11_best_practices.asciidoc)
+* Chapter 20 of *Erlang Programming* ([at Safari](https://www.safaribooksonline.com/library/view/erlang-programming/9780596803940/ch20.html))
+* [Solving Embarrassingly Obvious Problems In Erlang](http://www.gar1t.com/blog/solving-embarrassingly-obvious-problems-in-erlang.html)
+* [Erlang Beauty](http://blog.ikura.co/posts/erlang-beauty.html)
 
-And you can check all of our open-source projects at [inaka.github.io](http://inaka.github.io)
 
 ## Conventions & Rules
 
@@ -607,13 +604,3 @@ This greatly reduces the learning curve of the library and therefore makes it mo
 *Examples*: [data_types](src/data_types.erl)
 
 *Reasoning*: It helps with function documentation and, when using opaque types, we ensure encapsulation.
-
-***
-##### Separate responsibilities in sumo_db
-> When using sumo_db you should separate the responsibilities clearly, creating for each entity:
-> - one module (usually called MODELs) to describe the entity and allow administrating instances of the model in memory
-> - one module (usually called MODEL_repo) to handle the various operations that require business logic relating to the entity
-
-*Examples*: [separate responsibilities in sumo_db](https://github.com/inaka/fiar/tree/master/src/models)
-
-*Reasoning*: By dividing the functions into two different modules we increase understandability of the functionality especially if these are called from external modules. It also allows us to better organize the code and have smaller modules.
